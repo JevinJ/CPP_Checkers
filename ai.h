@@ -18,7 +18,7 @@
 #define AI_H_
 
 /*basic AI based on the highest possible move/jump count for a given pawn
-*/
+ */
 //measures and returns distances for a given ai path, used to give ai kill move preference
 int total_jumps(std::deque<std::pair<int, int>> path);
 

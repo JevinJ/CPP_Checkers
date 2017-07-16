@@ -18,12 +18,12 @@
 
 //Nodes trees are used to store all valid path points for all pawns in a turn
 struct Node {
-	std::pair<int, int> move;
+    std::pair<int, int> move;
 
-	Node *up_left = NULL;
-	Node *up_right = NULL;
-	Node *down_left = NULL;
-	Node *down_right = NULL;
+    Node *up_left = NULL;
+    Node *up_right = NULL;
+    Node *down_left = NULL;
+    Node *down_right = NULL;
 };
 
 void build_nodes(Board::Square orig, Node *root, int y, int x, bool isJump);
