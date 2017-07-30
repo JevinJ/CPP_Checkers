@@ -38,7 +38,7 @@ int total_jumps(deque<pair<int, int>> path) {
     if(path.size() <= 1) {
         return 0;
     }
-    for(int i = 0; i < path.size()-1; i++) {
+    for(unsigned int i = 0; i < path.size()-1; i++) {
         int x = path[i].first;
         int x_ = path[i+1].first;
         int y = path[i].second;
@@ -85,7 +85,7 @@ void ai_move() {
     // to get a pawn with the highest jump count.
     // vec[vec[pair(que[pair(y, x)], jumps)
     std::vector<std::vector<std::pair<std::deque<std::pair<int, int>>, int>>> test;
-    for(int i = 0; i < game.white_moves.size(); i++) {
+    for(unsigned int i = 0; i < game.white_moves.size(); i++) {
         vector<pair<deque<pair<int, int>>, int>> p_paths;
         deque<pair<int, int>> path;
         Node *ai_pawn = game.white_moves[i];
@@ -95,7 +95,7 @@ void ai_move() {
         find_path(p_paths, path, ai_pawn->down_left);
         find_path(p_paths, path, ai_pawn->down_right);
 
-        for(int i = 0; i < p_paths.size(); i++) {
+        for(unsigned int i = 0; i < p_paths.size(); i++) {
             if(p_paths[i].second > most_jumps) {
                 most_jumps = p_paths[i].second;
             }
@@ -112,7 +112,7 @@ void ai_move() {
     sort(test.begin(), test.end(), sort_set_jumps);
     test.erase(remove_if(test.begin(), test.end(), remove_low_set_jumps), test.end());
     deque<pair<int, int>> ai_path = test[0][0].first;
-    for(int i = 0; i < ai_path.size()-1; i++) {
+    for(unsigned int i = 0; i < ai_path.size()-1; i++) {
         make_move(ai_path[i].first, ai_path[i].second, ai_path[i+1].first, ai_path[i+1].second);
     }
 }
